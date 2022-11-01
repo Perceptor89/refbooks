@@ -10,4 +10,12 @@ check:
 migrate:
 	$(MANAGE) makemigrations
 	$(MANAGE) migrate
+
+test:
+	$(MANAGE) test
 	
+shell:
+	$(MANAGE) shell
+
+lint:
+	poetry run flake8 refbooks_keeper/refbooks/

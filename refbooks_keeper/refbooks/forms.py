@@ -25,6 +25,7 @@ class ElementVersionChoiceField(forms.ModelChoiceField):
 
 class ElementAdminForm(forms.ModelForm):
     version = ElementVersionChoiceField(queryset=Version.objects.all())
+
     class Meta:
         model = Element
         fields = '__all__'

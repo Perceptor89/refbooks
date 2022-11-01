@@ -1,0 +1,20 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$390000$SB7XaWK0QKNxtXkFIE65qn$4iXfDGviJtBiRM5Iylr8Q+WtWrJIzxYwitQ1ONAZwaI=",
+            "last_login": "2022-11-01T11:14:51.182Z",
+            "is_superuser": true,
+            "username": "perceptor",
+            "first_name": "",
+            "last_name": "",
+            "email": "",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2022-11-01T07:21:54.964Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    }
+]

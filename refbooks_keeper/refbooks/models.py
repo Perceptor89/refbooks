@@ -5,6 +5,11 @@ class Refbook(models.Model):
     code = models.CharField(max_length=100, unique=True)
     name = models.CharField(max_length=300)
     description = models.TextField()
+    owner = models.ForeignKey(
+        'auth.User',
+        related_name='refbooks',
+        on_delete=models.CASCADE
+    )
 
     def __str__(self):
         return self.name

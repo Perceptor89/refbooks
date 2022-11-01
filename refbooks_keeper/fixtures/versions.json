@@ -1,0 +1,20 @@
+[
+    {
+        "model": "refbooks.version",
+        "pk": 1,
+        "fields": {
+            "refbook": 2,
+            "name": "1.0",
+            "start_date": "2022-10-30"
+        }
+    },
+    {
+        "model": "refbooks.version",
+        "pk": 2,
+        "fields": {
+            "refbook": 1,
+            "name": "1.0",
+            "start_date": "2022-10-28"
+        }
+    }
+]

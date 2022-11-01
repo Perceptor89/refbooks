@@ -1,0 +1,22 @@
+[
+    {
+        "model": "refbooks.refbook",
+        "pk": 1,
+        "fields": {
+            "code": "MS1",
+            "name": " ",
+            "description": "",
+            "owner": 1
+        }
+    },
+    {
+        "model": "refbooks.refbook",
+        "pk": 2,
+        "fields": {
+            "code": "ICD-10",
+            "name": " -10",
+            "description": "",
+            "owner": 1
+        }
+    }
+]

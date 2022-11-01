@@ -8,8 +8,11 @@ authors = ["Andrey_Fominykh <meriadok2003@mail.ru>"]
 python = "3.10^"
 Django = "^4.1.2"
 python-dotenv = "^0.21.0"
+djangorestframework = "^3.14.0"
 
 [tool.poetry.dev-dependencies]
+django-extensions = "^3.2.1"
+flake8 = "^5.0.4"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

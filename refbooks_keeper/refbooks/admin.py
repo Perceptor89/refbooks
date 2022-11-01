@@ -7,6 +7,7 @@ from .forms import RefbookForm, VersionForm, ElementAdminForm
 class RefbookAdmin(admin.ModelAdmin):
     form = RefbookForm
     list_display = ('id', 'code', 'name', 'description')
+    ordering = ['id']
 
 
 class ElementInline(admin.TabularInline):
@@ -19,9 +20,11 @@ class VersionAdmin(admin.ModelAdmin):
     form = VersionForm
     list_display = ('id', 'name', 'start_date', 'refbook')
     inlines = [ElementInline]
+    ordering = ['id']
 
 
 @admin.register(Element)
 class ElementAdmin(admin.ModelAdmin):
     form = ElementAdminForm
     list_display = ('id', 'code', 'name', 'version')
+    ordering = ['id']
