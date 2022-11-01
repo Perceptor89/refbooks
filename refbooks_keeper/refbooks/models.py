@@ -39,7 +39,7 @@ class Version(models.Model):
 class Element(models.Model):
     version = models.ForeignKey(Version, on_delete=models.CASCADE)
     code = models.CharField(max_length=100, unique=True)
-    name = models.CharField(max_length=300)
+    value = models.CharField(max_length=300)
 
     def __str__(self):
         return self.code

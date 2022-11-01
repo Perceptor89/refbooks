@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from .models import Refbook
+from .models import Element, Refbook
 
 
 class RefbookSerializer(serializers.ModelSerializer):
@@ -20,3 +20,9 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['url', 'id', 'username', 'refbooks']
+
+
+class ElementSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Element
+        fields = ['code', 'value']

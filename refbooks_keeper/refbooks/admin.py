@@ -26,5 +26,5 @@ class VersionAdmin(admin.ModelAdmin):
 @admin.register(Element)
 class ElementAdmin(admin.ModelAdmin):
     form = ElementAdminForm
-    list_display = ('id', 'code', 'name', 'version')
+    list_display = ('id', 'code', 'value', 'version')
     ordering = ['id']

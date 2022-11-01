@@ -1,0 +1,56 @@
+[    
+    {
+        "model": "refbooks.element",
+        "pk": 1,
+        "fields": {
+            "version": 1,
+            "code": "J55",
+            "value": "1 element of 2 ref and 1 ver"
+        }
+    },
+    {
+        "model": "refbooks.element",
+        "pk": 2,
+        "fields": {
+            "version": 1,
+            "code": "O86",
+            "value": "2 element of 2 ref and 1 ver"
+        }
+    },
+    {
+        "model": "refbooks.element",
+        "pk": 3,
+        "fields": {
+            "version": 2,
+            "code": "L96",
+            "value": "1 element of 1 ref and 2 ver"
+        }
+    },
+    {
+        "model": "refbooks.element",
+        "pk": 4,
+        "fields": {
+            "version": 2,
+            "code": "D23",
+            "value": "2 element of 1 ref and 2 ver"
+        }
+    },
+    {
+        "model": "refbooks.element",
+        "pk": 5,
+        "fields": {
+            "version": 3,
+            "code": "G14",
+            "value": "1 element of 1 ref and 3 ver"
+        }
+    },
+    {
+        "model": "refbooks.element",
+        "pk": 6,
+        "fields": {
+            "version": 3,
+            "code": "T12",
+            "value": "2 element of 1 ref and 3 ver"
+        }
+    }
+]
