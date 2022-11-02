@@ -5,7 +5,7 @@ description = ""
 authors = ["Andrey_Fominykh <meriadok2003@mail.ru>"]
 
 [tool.poetry.dependencies]
-python = "3.10^"
+python = "^3.10"
 Django = "^4.1.2"
 python-dotenv = "^0.21.0"
 djangorestframework = "^3.14.0"
