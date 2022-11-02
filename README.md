@@ -1,5 +1,5 @@
 # Refbooks
-Web-application which helps you to create and read refbooks.
+Web-application which helps you to create and read refbooks.  
 [![Python CI](https://github.com/Perceptor89/refbooks/actions/workflows/pyci.yml/badge.svg)](https://github.com/Perceptor89/refbooks/actions/workflows/pyci.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/3b87494bf2d02ece8714/maintainability)](https://codeclimate.com/github/Perceptor89/refbooks/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/3b87494bf2d02ece8714/test_coverage)](https://codeclimate.com/github/Perceptor89/refbooks/test_coverage)
