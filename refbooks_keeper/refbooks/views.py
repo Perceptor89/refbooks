@@ -8,13 +8,24 @@ from .permissions import IsOwnerOrReadOnly
 from .serializers import RefbookSerializer, UserSerializer, ElementSerializer
 
 
-class RefbookViewSet(viewsets.ModelViewSet):
+class RefbookViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Refbook.objects.all()
     serializer_class = RefbookSerializer
     permission_classes = [
         permissions.IsAuthenticatedOrReadOnly,
         IsOwnerOrReadOnly
     ]
+
+    def get_version(self, request):
+        refbook = self.get_object()
+        req_ver_name = request.query_params.get('version')
+
+        if req_ver_name:
+            query = refbook.version_set.filter(name=req_ver_name)
+        else:
+            curr_date = datetime.now().date()
+            query = refbook.version_set.filter(start_date__lte=curr_date)
+        return query.latest('start_date') if query.exists() else None
 
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
@@ -27,7 +38,7 @@ class RefbookViewSet(viewsets.ModelViewSet):
         #     serializer = self.get_serializer(page, many=True)
         #     return self.get_paginated_response(serializer.data)
 
-        if queryset:
+        if queryset.exists():
             serializer = self.get_serializer(queryset, many=True)
             return Response({'refbooks': serializer.data})
         else:
@@ -35,26 +46,33 @@ class RefbookViewSet(viewsets.ModelViewSet):
 
     @action(detail=True)
     def elements(self, request, pk=None):
-        refbook = self.get_object()
-        req_ver_name = request.query_params.get('version')
-
-        if req_ver_name:
-            try:
-                target_ver = refbook.version_set.get(name=req_ver_name)
-            except Exception:
-                return Response(status=status.HTTP_204_NO_CONTENT)
-        else:
-            curr_date = datetime.now().date()
-            target_ver = refbook.version_set.filter(
-                start_date__lte=curr_date
-            ).latest('start_date')
+        target_ver = self.get_version(request)
 
         if target_ver:
             query = target_ver.element_set.all()
             serializer = ElementSerializer(query, many=True)
             return Response({'elements': serializer.data})
         else:
-            return Response(status=status.HTTP_204_NO_CONTENT)
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+    @action(detail=True)
+    def check_element(self, request, pk=None):
+        target_ver = self.get_version(request)
+        code = request.query_params.get('code')
+        value = request.query_params.get('value')
+
+        if target_ver:
+            query = target_ver.element_set.all()
+            query = query.filter(code=code) if code is not None else query
+            query = query.filter(value=value) if value is not None else query
+        else:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        if query.exists():
+            serializer = ElementSerializer(query, many=True)
+            return Response(serializer.data)
+        else:
+            return Response(status=status.HTTP_404_NOT_FOUND)
 
 
 class UserViewSet(viewsets.ReadOnlyModelViewSet):

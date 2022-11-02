@@ -20,7 +20,7 @@ class VersionForm(forms.ModelForm):
 
 class ElementVersionChoiceField(forms.ModelChoiceField):
     def label_from_instance(self, obj):
-        return 'refbook: %s - version: %s' % (obj.refbook.code, obj.name)
+        return '%s | version: %s' % (obj.refbook.name, obj.name)
 
 
 class ElementAdminForm(forms.ModelForm):
